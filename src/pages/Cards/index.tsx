@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 import Card from '../../components/Card';
 import api from '../../services/axios';
-
 interface ICard {
   id: string;
   name: string;
@@ -17,7 +16,7 @@ interface ICard {
 const Cards = () => {
 
   const [cards, setCards] = useState<Array<ICard>>([]);
-
+  
   useEffect(() => {
     api.get('cards?_limit=30')
       .then((response) => {

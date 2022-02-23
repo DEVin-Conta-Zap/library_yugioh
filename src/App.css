@@ -1,7 +1,14 @@
 .container {
   width: 80%;
   margin: 0 auto;
+}
 
+.container-home {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-cards {
   display: flex;
   flex-wrap: wrap;
 }
@@ -43,4 +50,47 @@
   text-decoration: underline;
   cursor: pointer;
   font-weight: bold;
+}
+
+/* TIPOS */
+
+.type-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.type-header {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.type-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.type-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 8px;
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bg-monster {
+  background-color: #FF8B53;
+}
+
+.bg-spell {
+  background: #1D9E74;
+}
+
+.bg-trap {
+  background: #8B66AB;
 }
