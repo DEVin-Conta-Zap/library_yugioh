@@ -5,8 +5,8 @@ const Card = ({ name, attribute, cardImage }) => {
       <img
         src={cardImage}
         alt={name}
-        width={30}
-        height={30}
+        width={130}
+        height={130}
       />
       <span>{name}</span>
       <span>{attribute}</span>

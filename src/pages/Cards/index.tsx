@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Card from '../../components/Card';
 import api from '../../services/axios';
+import {useParams} from 'react-router-dom';
 interface ICard {
   id: string;
   name: string;
@@ -15,10 +16,13 @@ interface ICard {
 
 const Cards = () => {
 
+  const params = useParams();
+  console.log(params.type)
+
   const [cards, setCards] = useState<Array<ICard>>([]);
   
   useEffect(() => {
-    api.get('cards?_limit=30')
+    api.get(`cards?race=${params.type}`)
       .then((response) => {
         setCards(response.data)
       })
