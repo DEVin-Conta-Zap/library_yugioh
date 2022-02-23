@@ -11,13 +11,24 @@
 .container-cards {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .card-item {
-  border: 1px solid #CCC;
   display: flex;
   flex-direction: column;
-  flex-basis: 50%;
+  gap: 5px;
+  width: 150px;
+  text-align: center;
+}
+
+.card-item abbr {
+  font-weight: bold;
+  color: #000;
+  font-size: 14px;
+  
+  
+  ;
 }
 
 .menu {

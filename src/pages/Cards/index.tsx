@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Card from '../../components/Card';
 import api from '../../services/axios';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 interface ICard {
   id: string;
   name: string;
@@ -14,31 +14,31 @@ interface ICard {
   }>;
 }
 
+interface IResponseGetCards extends ICard {
+}
+
 const Cards = () => {
 
   const params = useParams();
-  console.log(params.type)
 
   const [cards, setCards] = useState<Array<ICard>>([]);
-  
+
   useEffect(() => {
-    api.get(`cards?race=${params.type}`)
+    api.get<IResponseGetCards[]>(`cards?race=${params.type}`)
       .then((response) => {
         setCards(response.data)
       })
       .catch((error) => console.log(error))
       .finally(() => console.log('A chamada terminou'))
-  }, []);
+  }, [params.type]);
 
   return (
-    <div className='container'>
+    <div className='container container-cards'>
       {
         cards.map((card) =>
           <Card
             key={card.id}
-            name={card.name}
-            attribute={card.attribute}
-            cardImage={card.card_images[0].image_url_small}
+            data={card}
           />)
       }
     </div>
