@@ -71,7 +71,7 @@ const Cards = () => {
             if (cards.length - 1 === index) {
               return (
                 //@ts-ignore
-                <div ref={setLastElement} key={card.id} >
+                <div ref={setLastElement} key={card.id}>
                   <Card
                     data={card}
                   />

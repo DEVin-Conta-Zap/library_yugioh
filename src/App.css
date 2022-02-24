@@ -182,3 +182,47 @@
   color: #142D45;
   font-weight: bold;
 }
+
+/* Deck builder */
+
+.builder-content {
+  display: flex;
+  margin: 40px 0;
+  border: 1px solid #142D45;
+  padding: 10px;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  gap: 5px;
+}
+
+.left-content input {
+  width: 100%;
+  border-radius: 4px;
+  height: 34px;
+  border: 1px solid #142D45;
+  outline: 0;
+}
+
+.cards-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cards-options img {
+  width: 100px;
+}
+
+.right-content {
+  display: flex;
+  padding: 10px;
+  flex-basis: 50%;
+}
+
+.right-content img {
+  width: 70px;
+}
