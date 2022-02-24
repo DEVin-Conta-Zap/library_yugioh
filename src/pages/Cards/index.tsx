@@ -26,7 +26,7 @@ const Cards = () => {
 
   useEffect(() => {
     api.get<IResponseGetCards[]>(
-      `cards?race=${params.type}&_limit=1&_page=${page}`
+      `cards?race=${params.type}&_limit=20&_page=${page}`
     )
       .then((response) => {
         setCards([...cards, ...response.data])
@@ -62,7 +62,8 @@ const Cards = () => {
         }
 
       </div>
-      <p style={{ background: 'red', flex: 1 }} id="sentinela">123</p>
+      <p id="sentinela"></p>
+     
     </>
   )
 }
