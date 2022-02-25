@@ -12,10 +12,14 @@ import DeckBuilder from './pages/DeckBuilder';
 
 import Menu from './components/Menu';
 
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 const App = () => {
   return (
     <BrowserRouter>
       <Menu />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/cards/:type" element={<Cards />} /> 

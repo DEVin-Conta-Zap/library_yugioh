@@ -1,0 +1,1 @@
+export const TYPES_SPECIAL = ['XYZ Monster', 'Fusion Monster', 'Synchro Monster', 'Synchro Tuner Monster']
