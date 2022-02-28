@@ -1,5 +1,7 @@
 
+import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
+import { DeckContext } from '../../contexts/DeckContext';
 
 interface ILocation {
   name: string;
@@ -11,6 +13,7 @@ interface ILocation {
 const CardDetails = () => {
 
   const { state }: any = useLocation();
+  const {addCard} = useContext(DeckContext)
 
   return (
     <div className='container'>
@@ -41,6 +44,8 @@ const CardDetails = () => {
                 <span key={set.set_code} className="badge">{set.set_name}</span>
               )}
             </div>
+            
+            <button onClick={() => addCard(state)}>Adicionar ao deck</button>
           </div>
         </div>
       </div>
