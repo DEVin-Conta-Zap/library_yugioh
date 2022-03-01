@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Card from '../../components/Card';
 import api from '../../services/axios';
 import { useParams } from 'react-router-dom';
+import { Container } from './styles';
 interface ICard {
   id: string;
   name: string;
@@ -65,7 +66,7 @@ const Cards = () => {
 
   return (
     <>
-      <div className='container container-cards'>
+      <Container>
         {
           cards.map((card, index) => {
             if (cards.length - 1 === index) {
@@ -85,7 +86,7 @@ const Cards = () => {
             />)
           })
         }
-      </div>
+      </Container>
     </>
   )
 }

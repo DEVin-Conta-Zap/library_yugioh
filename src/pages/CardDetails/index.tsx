@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { DeckContext } from '../../contexts/DeckContext';
-
+import './styles.css';
 interface ILocation {
   name: string;
   card_images: {
@@ -16,7 +16,7 @@ const CardDetails = () => {
   const {addCard} = useContext(DeckContext)
 
   return (
-    <div className='container'>
+    <div className='container wrapper'>
       <div className='card-content'>
         <h1 className='title-card-details '>{state.name}</h1>
         <div className='details-wrapper'>

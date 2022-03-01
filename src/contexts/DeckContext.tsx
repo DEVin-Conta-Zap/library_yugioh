@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import { ICard } from '../types/Card'
 import { TYPES_SPECIAL } from '../utils/typeSpecialMonsters';
 
-
 interface IContext {
   deck: ICard[];
   extraDeck: ICard[];
@@ -66,7 +65,6 @@ export function DeckProvider({ children }: IPropsDeckProvider) {
       }
     }
   }
-
 
   const handleRemoveCardInDeck = (position: number) => {
     const newDeck = deck.filter((_, index) => index !== position)
