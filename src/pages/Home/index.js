@@ -8,7 +8,6 @@ import dragao from '../../assets/dragao.png';
 
 import { DeckContext } from '../../contexts/DeckContext';
 
-
 const Home = () => {
   return (
     <div className="container container-home">

@@ -19,24 +19,17 @@ interface ICard {
 
 const DeckBuilderWithContext = () => {
 
-  const { deck, extraDeck, addCard } = useContext(DeckContext)
+  const { deck, extraDeck, addCard, removeDeck, removeExtraDeck } = useContext(DeckContext)
 
   const [search, setSearch] = useState<string>("");
   const [cards, setCards] = useState<ICard[]>([]);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-
     api
       .get<ICard[]>(`/cards?q=${search}&_limit=20`)
       .then((response) => setCards(response.data))
       .catch(() => alert('Deu ruim!!!'))
-  }
-
-
-  const handleRemoveCardInDeck = (position: number) => {
-    // const newDeck = deck.filter((_, index) => index !== position)
-    //setDeck(newDeck)
   }
 
   return (
@@ -72,7 +65,7 @@ const DeckBuilderWithContext = () => {
                   key={index}
                   src={item.card_images[0].image_url}
                   alt={item.name}
-                  onClick={() => handleRemoveCardInDeck(index)}
+                  onClick={() => removeDeck(index)}
                 />
               ))}
             </div>
@@ -85,7 +78,7 @@ const DeckBuilderWithContext = () => {
                   key={index}
                   src={item.card_images[0].image_url}
                   alt={item.name}
-                  onClick={() => handleRemoveCardInDeck(index)}
+                  onClick={() => removeExtraDeck(index)}
                 />
               ))}
             </div>
