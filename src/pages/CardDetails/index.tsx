@@ -15,7 +15,8 @@ import {
   CardTitle,
   Container,
   Description,
-  Text
+  Text,
+  Line
 } from './styles';
 
 interface ILocation {
@@ -33,7 +34,6 @@ const CardDetails = () => {
   return (
     <Container>
       <CardContent>
-        <CardTitle>{state.name}</CardTitle>
         <CardDetailsContainer>
           <CardImage
             src={state.card_images[0].image_url}
@@ -41,16 +41,19 @@ const CardDetails = () => {
           />
           <CardInfo>
             <CardInfoHeader>
-              <Text>{state.attribute}</Text>
-              <Text>{state.level}</Text>
+              <CardTitle>{state.name}</CardTitle>
+              <div>
+                <Text>{state.attribute} / </Text>
+                <Text>{state.level}</Text>
+              </div>
             </CardInfoHeader>
             <CardInfoBody>
               <Text>[{state.race} / {state.type}]</Text>
               <Description>{state.desc}</Description>
-              <hr />
+              <Line />
               <Text>ATK: {state.atk}</Text>
               <Text>DEF: {state.def}</Text>
-              <hr />
+              <Line />
             </CardInfoBody>
             <CardInfoFooter>
               {state.card_sets.map((set: any) =>

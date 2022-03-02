@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { BREAKPOINTS } from '../../utils/breakpoints';
 
 export const Container = styled.div`
   width: 80%;
-  margin: 0 auto;
+  margin: 40px auto;
 `;
 
 export const CardContent = styled.div`
@@ -12,15 +13,27 @@ export const CardContent = styled.div`
 
 export const CardTitle = styled.h1`
    text-align: center;
-  color: #001427;
   font-size: 24px;
+  font-weight: bold;
+  color: #FFF;
 `;
 
 export const CardImage = styled.img`
   width: 350px;
   flex-basis: 30%;
   object-fit: fill;
-  align-self: flex-start;
+ 
+
+  @media(max-width: ${BREAKPOINTS.LARGE}) {
+    align-self: center;
+    width: 200px;
+  }
+
+  @media(min-width: ${BREAKPOINTS.EXTRA_LARGE}) {
+    align-self: flex-start;
+    min-width: 200px;
+    max-width: 400px;
+  }
 `;
 
 
@@ -28,6 +41,11 @@ export const CardDetailsContainer = styled.div`
   display: flex;
   gap: 10px;
   justify-content: center;
+  align-items: center;
+  @media(max-width: ${BREAKPOINTS.LARGE}) {
+    flex-direction: column;
+  }
+
 `;
 
 export const CardInfo = styled.div`
@@ -43,6 +61,7 @@ export const CardInfo = styled.div`
 
 export const CardInfoHeader = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 5px;
 `;
 
@@ -59,6 +78,10 @@ export const Text = styled.span`
 
 export const Description = styled.span`
  text-align: justify;
+
+ @media(max-width: ${BREAKPOINTS.SMALL}) {
+  font-size: 18px;
+  }
 `;
 
 export const CardInfoFooter = styled.div`
@@ -87,3 +110,7 @@ export const Badge = styled.button`
   font-weight: bold;
 `;
 
+
+export const Line = styled.hr`
+  width: 100%;
+`;

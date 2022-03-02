@@ -9,18 +9,39 @@ export const CardHeader = styled.div`
    display: flex;
    gap: 5px;
    align-items: center;
+
+   @media(max-width: 800px) {
+    justify-content: center;
+  }
+
 `;
 
 export const CardIcon = styled.img`
-  width: 50px;
+  width: 90px;
+
+  @media(max-width: 480px) {
+    display: none;
+  }
 `;
 
 export const CardTitle = styled.h2`
+  font-size: 28px;
+  color: #001427;
+  font-weight: bold;
+
+  @media(max-width: 800px) {
+    display: none;
+  }
+
 `;
 
 export const CardList = styled.ul`
   display: flex;
   flex-wrap: wrap;
+
+  @media(max-width: 800px) {
+    justify-content: center;
+  }
 `;
 
 interface IPropsCardItem {
@@ -43,6 +64,13 @@ export const CardItem = styled.li<IPropsCardItem>`
   &:hover {
     background: #DDD;
   }
+
+  @media(max-width: 480px) {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+  }
+
 `;
 
 export const CardItemTitle = styled.ul`
