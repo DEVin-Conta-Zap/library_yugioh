@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { DeckContext } from "../../contexts/DeckContext";
 import api from "../../services/axios";
 import { TYPES_SPECIAL } from "../../utils/typeSpecialMonsters";
+import { CardsContainer, Container, DeckTitle, ExtraDeck, Input, LeftContainer, MainDeck, RightContainer } from "./styles";
 
 interface ICard {
   id: string;
@@ -33,18 +34,17 @@ const DeckBuilderWithContext = () => {
   }
 
   return (
-    <div className="container">
-      <div className="builder-content">
-        <div className="left-content">
+    <Container>
+        <LeftContainer className="left-content">
           <form onSubmit={handleSubmit}>
-            <input
+            <Input
               type="text"
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               placeholder="Pesquisa ..."
             />
           </form>
-          <div className="cards-options">
+          <CardsContainer>
             {cards.map((item, index) => (
               <img
                 key={index}
@@ -53,12 +53,11 @@ const DeckBuilderWithContext = () => {
                 onClick={() => addCard(item)}
               />
             ))}
-          </div>
-        </div>
-        <div className="right-content">
-
-          <div className="deck">
-            <p>Main Deck</p>
+          </CardsContainer>
+        </LeftContainer>
+        <RightContainer>
+          <MainDeck>
+            <DeckTitle>Main Deck</DeckTitle>
             <div>
               {deck.map((item, index) => (
                 <img
@@ -69,9 +68,9 @@ const DeckBuilderWithContext = () => {
                 />
               ))}
             </div>
-          </div>
-          <div className="deck">
-            <p>Extra Deck</p>
+          </MainDeck>
+          <ExtraDeck className="deck">
+            <DeckTitle>Extra Deck</DeckTitle>
             <div>
               {extraDeck.map((item, index) => (
                 <img
@@ -82,10 +81,9 @@ const DeckBuilderWithContext = () => {
                 />
               ))}
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </ExtraDeck>
+      </RightContainer>
+    </Container>
   );
 }
 

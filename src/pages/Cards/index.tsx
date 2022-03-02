@@ -21,10 +21,9 @@ interface IResponseGetCards extends ICard {
 const Cards = () => {
 
   const params = useParams();
+  
   const [page, setPage] = useState<number>(1)
-
   const [cards, setCards] = useState<Array<ICard>>([]);
-
   const [lastElement, setLastElement] = useState(null);
 
   const observer = useRef(

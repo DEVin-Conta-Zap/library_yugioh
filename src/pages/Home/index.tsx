@@ -7,7 +7,7 @@ import Kuriboh from '../../assets/kuriboh.png';
 import Dragao from '../../assets/dragao.png';
 
 import { Container } from './styles';
-console.log(Dragao)
+
 const Home = () => {
   return (
     <Container>
