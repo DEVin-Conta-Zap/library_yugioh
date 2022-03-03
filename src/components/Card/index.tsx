@@ -7,7 +7,7 @@ interface IPropsCard {
 const Card: React.FC<IPropsCard> = ({ data }) => {
   const navigate = useNavigate()
   return (
-    <Container className="card-item" onDoubleClick={() => navigate(`/card-details/`, {state: data})}>
+    <Container onDoubleClick={() => navigate(`/card-details/`, {state: data})}>
       <Image
         src={data.card_images[0].image_url}
         alt={data.name}

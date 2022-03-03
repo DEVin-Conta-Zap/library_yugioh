@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-
+import Skeleton from 'react-loading-skeleton';
 import Card from '../../components/Card';
 import api from '../../services/axios';
 import { useParams } from 'react-router-dom';
-import { Container } from './styles';
+import { Container, ContainerSkeleton } from './styles';
 interface ICard {
   id: string;
   name: string;
@@ -21,10 +21,11 @@ interface IResponseGetCards extends ICard {
 const Cards = () => {
 
   const params = useParams();
-  
+
   const [page, setPage] = useState<number>(1)
   const [cards, setCards] = useState<Array<ICard>>([]);
   const [lastElement, setLastElement] = useState(null);
+  const [loading, setLoading] = useState<boolean>(false)
 
   const observer = useRef(
     new IntersectionObserver(
@@ -37,6 +38,7 @@ const Cards = () => {
   );
 
   useEffect(() => {
+    setLoading(true)
     api.get<IResponseGetCards[]>(
       `cards?race=${params.type}&_limit=10&_page=${page}`
     )
@@ -44,7 +46,7 @@ const Cards = () => {
         setCards([...cards, ...response.data])
       })
       .catch((error) => console.log(error))
-      .finally(() => console.log('A chamada terminou'))
+      .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
@@ -65,6 +67,7 @@ const Cards = () => {
 
   return (
     <>
+
       <Container>
         {
           cards.map((card, index) => {
@@ -86,6 +89,17 @@ const Cards = () => {
           })
         }
       </Container>
+
+      {loading ? (
+        <ContainerSkeleton>
+          <Skeleton
+            height="100%"
+            count={5}
+            containerClassName="avatar-skeleton"
+            style={{margin: 10}}
+          />
+        </ContainerSkeleton>
+      ) : 'Carregado'}
     </>
   )
 }
